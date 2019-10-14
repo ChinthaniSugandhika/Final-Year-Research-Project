@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?> <database name="company">
+<table name="employee">
+<column name="number" value1="primary_key"></column> <column name="first_name"></column> <column name="middle_name"></column> <column name="last_name"></column> <column name="salary"></column> <column name="address"></column> <column name="gender"></column> <column name="date_of_birth"></column> <column name="department_number" value2="foreign_key" ref="department"></column> <column name="supervisor" value2="foreign_key" ref="employee"></column> </table> <table name="project">
+<column name="number" value1="primary_key"></column> <column name="name"></column> <column name="location"></column> <column name="department_number" value2="foreign_key" ref="department"></column> </table> <table name="department">
+<column name="number" value1="primary_key"></column> <column name="name"></column> <column name="employee_number" value2="foreign_key" ref="employee"></column> <column name="start_date"></column> </table> <table name="dependent">
+<column name="dependent_number" value1="primary_key"></column> <column name="first_name"></column> <column name="gender"></column> <column name="date_of_birth"></column> <column name="relationship"></column> <column name="employee_number" value2="foreign_key" ref="employee"></column> </table> <table name="work">
+<column name="employee_number" value1="primary_key" value2="foreign_key" ref="employee"></column>
+<column name="project_number" value1="primary_key" value2="foreign_key" ref="project"></column>
+<column name="hours_per_week"></column> </table> <table name="location">
+<column name="location" value1="primary_key"></column> <column name="department_number" value1="primary_key" value2="foreign_key" ref="department"></column>
+</table> </database>
