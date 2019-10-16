@@ -5,12 +5,9 @@ root = tree.getroot()
 
 tableInfoDic={}
 
-
-
 #Reads the xml file and stores table names, trribute names and attribute values in a dictionary
 for table in root.findall('table'):
     tableName=table.get('name')
-    #tableList.append(tableName)
     valueDic = {}
     for column in table.findall('column'):
         name=column.get('name')
@@ -18,7 +15,6 @@ for table in root.findall('table'):
         valueDic.update({name:value})
 
     tableInfoDic[tableName]=valueDic
-
 
 #Reads the keys(table names) from a dictinary and stores in a list
 def readTableNames():
@@ -29,11 +25,7 @@ def readTableNames():
     #print("tables :",tableList)
     return tableList
 
-#def createAttributeListsForTables():
-   # numberOfTables=tableList.count()
-   # for table in tableList:
-       # tempDic={}
-       # tempDic[table]=
+
 
 #Reads the keys(attribute names) in dictionary inside another dictionary and converts it into a list
 def readAttributeNames():

@@ -3,7 +3,6 @@ nltk.download('wordnet')
 from nltk.corpus import wordnet
 import re
 
-
 # create Knowledge Base which contains synonyms for table names and attribute names
 def createKnowledgeBase(listType, list):
     knowledgeBase = []
@@ -12,9 +11,6 @@ def createKnowledgeBase(listType, list):
         for table in table_list:
             kbFile = open("table_knowledgebase_file", "w+")
             syns = wordnet.synsets(table, pos='n')[0]
-            # lemmas = syns.lemmas()
-            # print(len(lemmas))
-            # print([lemma.name() for lemma in syns.lemmas()])
             kbFile.write(str([table, syns]))
             kbFile.write("\n")
             knowledgeBase.append([table, syns])
@@ -26,14 +22,10 @@ def createKnowledgeBase(listType, list):
             else:
                 kbFile = open("table_knowledgebase_file", "w+")
                 syns = wordnet.synsets(attribute, pos='n')[0]
-                # print([lemma.name() for lemma in syns.lemmas()])
                 kbFile.write(str([attribute, syns]))
                 kbFile.write("\n")
                 knowledgeBase.append([attribute, syns])
-    #print(knowledgeBase)
     return knowledgeBase
-
-
 
 def operatorKnowledgeBase(nouns, adverbs):
     symbolList = []
@@ -66,11 +58,6 @@ def operatorKnowledgeBase(nouns, adverbs):
                 symbolList.append(symbol)
     return symbolList
 
-
-# knowledgebase1=createKnowledgeBase('attribute',['department_num', 'location'])
-# 'number', 'name', 'relationship', 'first_name', 'gender', 'date_of_birth', 'employee_number', 'dependent_number', 'employee_number', 'number', 'name', 'start_date', 'location', 'department_number', 'employee_number', 'project_number', 'hours_per_week', 'supervisor', 'gender', 'number', 'first_name', 'middle_name', 'date_of_birth', 'address', 'salary', 'departmnet_number', 'last_name'])
-# print(knowledgebase1)
-
 #tableList=main.tables
 kn=createKnowledgeBase('table',['employee','department'])
 print(kn)
@@ -90,15 +77,3 @@ def tableIdentifier(knowledgeBase, nounList):
                     list.append(a[0])
                     n_list.append(n)
                     return list, n_list
-
-#sim=tableIdentifier(kn,['employee','department'])
-
-"""
-
-syns = wordnet.synsets("program")
-print(syns[0].name())
-print(syns[0].lemmas()[0].name())
-print(syns[0].definition())
-print(syns[0].examples())
-
-"""
